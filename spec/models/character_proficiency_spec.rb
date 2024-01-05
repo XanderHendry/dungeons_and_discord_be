@@ -1,5 +1,7 @@
 require 'rails_helper'
 
-RSpec.describe CharacterProficiency, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+RSpec.describe CharacterProficiency do
+  describe "relationships" do
+    it {should belong_to :character}
+  end
 end

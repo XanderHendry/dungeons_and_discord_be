@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe CharacterFeature do
+RSpec.describe CharacterStat, type: :model do
   describe "relationships" do
     it {should belong_to :character}
   end

@@ -1,5 +1,9 @@
 require 'rails_helper'
 
 RSpec.describe Encounter, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  describe "relationships" do
+    it {should belong_to :game}
+    it {should have_many :encounter_loots}
+    it {should have_many :encounter_monsters}
+  end
 end
