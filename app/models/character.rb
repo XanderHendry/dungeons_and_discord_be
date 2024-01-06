@@ -5,4 +5,6 @@ class Character < ApplicationRecord
   has_many :character_proficiencies
   has_many :character_spells
   has_many :character_features
+  has_one :character_currency
+  has_one :character_stat
 end

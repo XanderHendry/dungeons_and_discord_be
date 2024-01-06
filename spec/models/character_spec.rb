@@ -7,4 +7,6 @@ RSpec.describe Character, type: :model do
   it {should have_many :character_proficiencies}
   it {should have_many :character_spells}
   it {should have_many :character_features}
+  it {should have_one :character_currency}
+  it {should have_one :character_stat}
 end
