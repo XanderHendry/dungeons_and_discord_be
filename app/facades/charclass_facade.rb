@@ -9,6 +9,11 @@ class CharclassFacade
     end
   end
 
+  def self.get_charclass(charclass)
+    json_response = CharclassService.get_charclass(charclass)
+    Charclass.new(json_response)
+  end
+
   def self.get_levels(charclass)
     json_response = CharclassService.get_levels(charclass)
   end
