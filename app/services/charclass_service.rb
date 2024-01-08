@@ -17,8 +17,4 @@ class CharclassService
   def self.get_charclass(charclass)
     get_url("/api/classes/#{charclass}")
   end
-
-  def self.get_levels(charclass)
-    get_url("/api/classes/#{charclass}/levels")
-  end
 end
