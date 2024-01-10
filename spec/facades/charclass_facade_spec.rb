@@ -16,8 +16,8 @@ RSpec.describe CharclassFacade do
     it "returns a Charclass object" do
       response = facade.get_charclass("barbarian")
 
-      expect(response).to be_an(Array)
-      expect(response.first).to be_a(Charclass)
+      expect(response).to be_a(Charclass)
+      expect(response.name).to eq("Barbarian")
     end
   end
 end
