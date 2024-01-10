@@ -8,26 +8,9 @@ describe "class requests for API" do
     # Charclass.create(index: "test4", name: "testing4", url: "testing4.com")
 
     get '/api/v1/charclasses/barbarian'
-
     expect(response).to be_successful
 
     charclass = JSON.parse(response.body, symbolize_names: true)
-
-    classes.each do |c|
-      expect(c).to have_key(:id)
-      expect(c[:id]).to be_an(Integer)
-
-      expect(c).to have_key(:index)
-      expect(c[:index]).to be_a(String)
-
-      expect(c).to have_key(:name)
-      expect(c[:name]).to be_a(String)
-
-      expect(c).to have_key(:url)
-      expect(c[:url]).to be_a(String)
-
-      expect(c).to have_key(:created_at)
-      expect(c).to have_key(:updated_at)
-    end
+    expect(charclass[:data][:attributes][:name]).to eq("Barbarian")
   end
 end

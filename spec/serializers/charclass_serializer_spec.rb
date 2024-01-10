@@ -4,7 +4,6 @@ RSpec.describe CharclassSerializer do
   it 'formats data for a Charclass object' do
     charclass = CharclassFacade.get_charclass("barbarian")
     output = CharclassSerializer.new(charclass).serializable_hash
-    binding.pry
     expect(output).to have_key(:data)
     expect(output[:data]).to be_a(Hash)
     expect(output[:data]).to have_key(:id)
