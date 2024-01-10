@@ -13,4 +13,8 @@ describe "class requests for API" do
     charclass = JSON.parse(response.body, symbolize_names: true)
     expect(charclass[:data][:attributes][:name]).to eq("Barbarian")
   end
+
+  it 'lets you create models based on character creation choices' do
+    
+  end
 end
