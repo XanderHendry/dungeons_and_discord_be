@@ -12,6 +12,6 @@ class Api::V1::CharactersController < ApplicationController
   private
 
   def character_params
-    params.permit(:user_id, :char_class)
+    params.permit(:user_id, :char_class, :name, :race, :alignment, :subclass, :background, :level)
   end
 end
