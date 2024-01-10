@@ -1,9 +1,9 @@
 require 'rails_helper'
 
 RSpec.describe CharclassService do
-  describe 'class methods' do
-    before(:each) do
-    end
+  describe 'class methods', :vcr do
+    # before(:each) do
+    # end
 
     context '#conn' do
       it 'returns a Faraday connection' do
