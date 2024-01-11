@@ -37,17 +37,18 @@ class Api::V1::CharclassesController < ApplicationController
   def add_stats
     character = Character.last
     class_details = CharclassFacade.get_charclass(character.char_class)
-    character.character_stat.create({
-      strength: params[:strength],
-      dexterity: params[:dexterity],
-      constitution: params[:constitution],
-      intelligence: params[:intelligence],
-      wisdom: params[:wisdom],
-      charisma: params[:charisma],
-      armor_class: params[:armor_class],
-      max_hit_points: class_details.hit_die,
-      speed: params[:speed],
+    
+    CharacterStat.create({
+      character_id: character.id,
+      str: params[:charclass][:str].to_i,
+      dex: params[:charclass][:dex].to_i,
+      con: params[:charclass][:con].to_i,
+      int: params[:charclass][:int].to_i,
+      wis: params[:charclass][:wis].to_i,
+      cha: params[:charclass][:cha].to_i,
+      max_hit_point: class_details.hit_die.to_i
     })
-    render json: CharacterSerializer.new(character.character_stats), status: 200
+    
+    render json: CharacterSerializer.new(character.character_stat), status: 200
   end
 end
