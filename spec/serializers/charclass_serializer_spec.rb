@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe CharclassSerializer do
-  it 'formats data for a Charclass object' do
+  it 'formats data for a Charclass object', :vcr do
     charclass = CharclassFacade.get_charclass("barbarian")
     output = CharclassSerializer.new(charclass).serializable_hash
     expect(output).to have_key(:data)
