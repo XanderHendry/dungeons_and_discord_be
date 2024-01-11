@@ -7,7 +7,12 @@ class Api::V1::CharactersController < ApplicationController
 
   def create
     new_character = Character.create(character_params)
-    render json: CharacterSerializer.new(new_character), status: 200
+    render json: CharacterSerializer.new(new_character), status: 201
+  end
+
+  def show
+    character = Character.find_by(id: params[:id])
+    render json: CharacterSerializer.new(character), status: 200
   end
 
   private

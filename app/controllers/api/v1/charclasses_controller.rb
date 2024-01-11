@@ -18,7 +18,7 @@ class Api::V1::CharclassesController < ApplicationController
     proficiencies = params[:proficiencies].each do |proficiency|
       character.character_proficiencies.create({ proficiency_name: proficiency})
     end
-    render json: CharacterSerializer.new(character.character_proficiencies), status: 200
+    render json: CharacterSerializer.new(character.character_proficiencies), status: 201
   end
 
   def add_items
@@ -31,7 +31,7 @@ class Api::V1::CharclassesController < ApplicationController
     items = params[:starting_equipment_options].each do |equipment|
       character.character_items.create({ item_name: equipment})
     end
-    render json: CharacterSerializer.new(character.character_items), status: 200
+    render json: CharacterSerializer.new(character.character_items), status: 201
   end
 
   def add_stats
@@ -49,6 +49,6 @@ class Api::V1::CharclassesController < ApplicationController
       max_hit_point: class_details.hit_die.to_i
     })
     
-    render json: CharacterSerializer.new(character.character_stat), status: 200
+    render json: CharacterSerializer.new(character.character_stat), status: 201
   end
 end
