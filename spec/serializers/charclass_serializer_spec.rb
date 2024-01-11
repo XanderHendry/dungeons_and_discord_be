@@ -14,5 +14,17 @@ RSpec.describe CharclassSerializer do
     expect(output[:data][:attributes]).to be_an(Hash)
     expect(output[:data][:attributes][:index]).to eq("barbarian")
     expect(output[:data][:attributes]).to_not have_key(:url)
+    expect(output[:data][:attributes]).to have_key(:proficiency_choices)
+    expect(output[:data][:attributes][:proficiency_choices]).to be_an(Array)
+    expect(output[:data][:attributes]).to have_key(:proficiencies)
+    expect(output[:data][:attributes][:proficiencies]).to be_an(Array)
+    expect(output[:data][:attributes]).to have_key(:saving_throws)
+    expect(output[:data][:attributes][:saving_throws]).to be_an(Array)
+    expect(output[:data][:attributes]).to have_key(:starting_equipment)
+    expect(output[:data][:attributes][:starting_equipment]).to be_an(Array)
+    expect(output[:data][:attributes]).to have_key(:starting_equipment_options)
+    expect(output[:data][:attributes]).to have_key(:subclass)
+    expect(output[:data][:attributes][:starting_equipment_options]).to be_an(Array)
+    expect(output[:data][:attributes][:subclass]).to be_an(Array)
   end
 end

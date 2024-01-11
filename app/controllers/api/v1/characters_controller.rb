@@ -1,6 +1,7 @@
 class Api::V1::CharactersController < ApplicationController
   def index
     characters = Character.where(user_id: params[:user_id])
+    binding.pry
     render json: CharacterSerializer.new(characters)
   end
 
@@ -12,6 +13,6 @@ class Api::V1::CharactersController < ApplicationController
   private
 
   def character_params
-    params.permit(:user_id, :char_class)
+    params.permit(:user_id, :char_class, :name, :race, :alignment, :subclass, :background, :level)
   end
 end
