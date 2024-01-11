@@ -26,10 +26,10 @@ class Api::V1::CharclassesController < ApplicationController
     character = Character.last
     class_details = CharclassFacade.get_charclass(character.char_class)
     class_details.starting_equipment.each do |equipment|
-      character.character_items.create({item_name: equipment[:name]})
+      character.character_items.create({item_name: equipment[:equipment][:name]})
     end
-    proficiencies = params[:starting_equipment_options].each do |equipment|
-      character.character_proficiencies.create({ item_name: equipment[:name]})
+    items = params[:starting_equipment_options].each do |equipment|
+      character.character_items.create({ item_name: equipment})
     end
     render json: CharacterSerializer.new(character.character_items), status: 200
   end
