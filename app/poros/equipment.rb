@@ -1,9 +1,9 @@
 class Equipment
-  attr_reader :id, :index, :name, :equipment
+  attr_reader :id, :index, :name
 
   def initialize(attributes)
     @id = nil
-    @index = attributes[:equipment][:index]
-    @name = attributes[:equipment][:name]
+    @index = attributes[:index]
+    @name = attributes[:name]
   end
 end

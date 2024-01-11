@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 describe "class requests for API" do
-  it "sends a list of classes" do
+  it "sends a list of classes", :vcr do
     # Charclass.create(index: "test", name: "testing", url: "testing.com")
     # Charclass.create(index: "test3", name: "testing2", url: "testing2.com")
     # Charclass.create(index: "test2", name: "testing3", url: "testing3.com")
