@@ -1,7 +1,6 @@
 class Api::V1::CharactersController < ApplicationController
   def index
     characters = Character.where(user_id: params[:user_id])
-   
     render json: CharacterSerializer.new(characters)
   end
 
@@ -13,6 +12,19 @@ class Api::V1::CharactersController < ApplicationController
   def show
     character = Character.find_by(id: params[:id])
     render json: CharacterSerializer.new(character), status: 200
+  end
+
+  def destroy
+    character = Character.find(params[:id])
+    if !character.nil?
+      character.character_stat.destroy
+      character.character_items.delete_all
+      character.character_proficiencies.delete_all
+      character.destroy
+      render json: CharacterSerializer.new(character), status: :no_content
+      else
+      #  render json: ErrorSerializer.new(ErrorMessage.new("No MarketVendor with market_id=#{params[:market_id]} AND vendor_id=#{params[:vendor_id]} exists", 404)).serialize_json, status: :not_found
+      end
   end
 
   private
