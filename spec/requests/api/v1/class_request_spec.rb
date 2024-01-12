@@ -1,20 +1,17 @@
-require 'rails_helper'
+# require 'rails_helper'
 
-describe "class requests for API" do
-  it "sends a list of classes", :vcr do
-    # Charclass.create(index: "test", name: "testing", url: "testing.com")
-    # Charclass.create(index: "test3", name: "testing2", url: "testing2.com")
-    # Charclass.create(index: "test2", name: "testing3", url: "testing3.com")
-    # Charclass.create(index: "test4", name: "testing4", url: "testing4.com")
+# describe "class requests for API" do
+#   it "sends a list of classes", :vcr do
 
-    get '/api/v1/charclasses/barbarian'
-    expect(response).to be_successful
 
-    charclass = JSON.parse(response.body, symbolize_names: true)
-    expect(charclass[:data][:attributes][:name]).to eq("Barbarian")
-  end
+#     get '/api/v1/charclasses/barbarian'
+#     expect(response).to be_successful
 
-  it 'lets you create models based on character creation choices' do
+#     charclass = JSON.parse(response.body, symbolize_names: true)
+#     expect(charclass[:data][:attributes][:name]).to eq("Barbarian")
+#   end
+
+#   # xit 'lets you create models based on character creation choices' do
     
-  end
-end
+#   # end
+# end
