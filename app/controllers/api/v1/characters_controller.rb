@@ -1,7 +1,6 @@
 class Api::V1::CharactersController < ApplicationController
   def index
     characters = Character.where(user_id: params[:user_id])
-   
     render json: CharacterSerializer.new(characters)
   end
 
