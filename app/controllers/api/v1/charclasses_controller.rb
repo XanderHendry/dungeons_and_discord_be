@@ -10,7 +10,7 @@ class Api::V1::CharclassesController < ApplicationController
 
   def add_prof
     # this method needs refactoring, we aren't ensuring that incomplete characters won't be saved to the db. we can still end up with 7 shreks.
-    character = Character.last
+    character = Character.where(id: params[:char_id])
     class_details = CharclassFacade.get_charclass(character.char_class)
     class_details.proficiencies.each do |proficiency|
       character.character_proficiencies.create({proficiency_name: proficiency[:name]})
@@ -23,7 +23,7 @@ class Api::V1::CharclassesController < ApplicationController
 
   def add_items
     # this method needs refactoring, we aren't ensuring that incomplete characters won't be saved to the db. we can still end up with 7 shreks.
-    character = Character.last
+    character = Character.find_by(id: params[:char_id])
     class_details = CharclassFacade.get_charclass(character.char_class)
     class_details.starting_equipment.each do |equipment|
       character.character_items.create({item_name: equipment[:equipment][:name]})
@@ -35,9 +35,8 @@ class Api::V1::CharclassesController < ApplicationController
   end
 
   def add_stats
-    character = Character.last
+    character = Character.find_by(id: params[:char_id])
     class_details = CharclassFacade.get_charclass(character.char_class)
-    
     CharacterStat.create({
       character_id: character.id,
       str: params[:charclass][:str].to_i,
