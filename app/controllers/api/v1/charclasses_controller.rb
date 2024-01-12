@@ -9,7 +9,6 @@ class Api::V1::CharclassesController < ApplicationController
   end
 
   def add_prof
-    require 'pry'; binding.pry
     # this method needs refactoring, we aren't ensuring that incomplete characters won't be saved to the db. we can still end up with 7 shreks.
     character = Character.find_by(id: params[:char_id])
     class_details = CharclassFacade.get_charclass(character.char_class)
