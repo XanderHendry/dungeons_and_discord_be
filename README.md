@@ -49,8 +49,9 @@ Deployment
 Add additional notes to deploy this on a live system
 
 ## Project Description
+Tired of having to lug around a sheet of paper with all of characters attributes for your Dungeons and Dragons games? You get all the way to the Dungeon Master's lair and forgot your character sheet? Cry no longer, weary traveler, **Dungeons and Discord** is here! Utilizing Discord to log in to the app, users are able to create characters by naming the character and selecting a class. Once the character has been created, this character is stored for you, so you don't have to remember that pesky piece of paper again! Players can also utilize Discord's server creation so a DM can host a game over the voice channel and a session can happen from the comfort of your home, car, anywhere with stable connection to the internet!
 
-**Dungeons and Discord** Creates tools for running and playing a D&D game in a virtual space. Connects to discord profiles for account authorization, 
+This repository provides the back end of the project, utilizing the external API calls from the [Dungeons and Dragons 5e API](https://5e-bits.github.io/docs/), it also handles data storage for all the aspects of a Character in DnD.
 
 
 ## Database Schema
